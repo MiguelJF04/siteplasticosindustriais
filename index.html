@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Centralplast | Plásticos Industriais</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    :root {
+      --primary: #005b96;
+      --primary-dark: #003f6b;
+      --accent: #00a6d6;
+      --text: #1f2933;
+      --muted: #6b7280;
+      --bg: #f5f8fb;
+      --white: #ffffff;
+      --border: #e5e7eb;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    header {
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar {
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: var(--primary);
+      letter-spacing: .4px;
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      color: #374151;
+      font-size: .95rem;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: .25s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border-color: #c7d2fe;
+      color: var(--primary);
+      background: white;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      background:
+        linear-gradient(110deg, rgba(0,63,107,.92), rgba(0,166,214,.72)),
+        url('https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=1800&q=80') center/cover;
+      color: white;
+      padding: 105px 0 95px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.3rem, 5vw, 4.5rem);
+      line-height: 1.05;
+      margin-bottom: 22px;
+      max-width: 780px;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: #e8f6ff;
+      max-width: 680px;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,.13);
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 28px;
+      padding: 28px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 25px 60px rgba(0,0,0,.18);
+    }
+
+    .hero-card h3 {
+      margin-bottom: 18px;
+      font-size: 1.2rem;
+    }
+
+    .hero-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .hero-list div {
+      padding: 14px 16px;
+      background: rgba(255,255,255,.14);
+      border-radius: 16px;
+      font-weight: 600;
+    }
+
+    section {
+      padding: 82px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-title span {
+      color: var(--accent);
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: .78rem;
+      letter-spacing: 1.4px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-top: 8px;
+      margin-bottom: 12px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      max-width: 760px;
+      margin: auto;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 28px;
+      border: 1px solid var(--border);
+      box-shadow: 0 14px 35px rgba(15,23,42,.06);
+      transition: .25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 50px rgba(15,23,42,.10);
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #e8f7ff;
+      color: var(--primary);
+      font-size: 1.4rem;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      font-size: 1.12rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .about {
+      background: white;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .about-image {
+      min-height: 430px;
+      border-radius: 32px;
+      background:
+        linear-gradient(rgba(0,91,150,.12), rgba(0,91,150,.12)),
+        url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80') center/cover;
+      box-shadow: 0 25px 60px rgba(15,23,42,.14);
+    }
+
+    .about-content h2 {
+      font-size: 2.45rem;
+      margin-bottom: 18px;
+    }
+
+    .about-content p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .feature {
+      background: var(--bg);
+      padding: 16px;
+      border-radius: 18px;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 26px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 14px 35px rgba(15,23,42,.06);
+      transition: .25s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .product-top {
+      height: 120px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2.25rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .product-body {
+      padding: 24px;
+    }
+
+    .product-body h3 {
+      margin-bottom: 10px;
+      color: var(--primary-dark);
+    }
+
+    .product-body p {
+      color: var(--muted);
+      font-size: .95rem;
+      margin-bottom: 18px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      background: #eef7fb;
+      color: var(--primary);
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: .78rem;
+      font-weight: 700;
+    }
+
+    .price-section {
+      background: white;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      background: white;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      box-shadow: 0 14px 35px rgba(15,23,42,.06);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 760px;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background: #f0f7fb;
+      color: var(--primary-dark);
+      font-size: .88rem;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+    }
+
+    td {
+      color: #374151;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .cta {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: white;
+      text-align: center;
+      padding: 74px 0;
+    }
+
+    .cta h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 16px;
+    }
+
+    .cta p {
+      color: #d9f2ff;
+      margin-bottom: 28px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 34px;
+    }
+
+    .contact-info, form {
+      background: white;
+      border-radius: 28px;
+      padding: 32px;
+      border: 1px solid var(--border);
+      box-shadow: 0 14px 35px rgba(15,23,42,.06);
+    }
+
+    .contact-info h3, form h3 {
+      color: var(--primary-dark);
+      margin-bottom: 20px;
+      font-size: 1.4rem;
+    }
+
+    .contact-item {
+      margin-bottom: 18px;
+      color: var(--muted);
+    }
+
+    .contact-item strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 15px 16px;
+      font-size: 1rem;
+      outline: none;
+      transition: .2s;
+      background: #fbfdff;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(0,166,214,.12);
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    footer {
+      background: #071827;
+      color: #d1d5db;
+      padding: 34px 0;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: .92rem;
+    }
+
+    .mobile-menu {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: var(--primary);
+      cursor: pointer;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cards,
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      .mobile-menu {
+        display: block;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .cards,
+      .products-grid,
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .navbar {
+        height: 70px;
+      }
+
+      .hero {
+        padding: 78px 0 70px;
+      }
+
+      section {
+        padding: 62px 0;
+      }
+    }
+
+.product-card{
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: .25s ease;
+}
+
+.product-card:hover{
+  transform: translateY(-6px);
+}
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container navbar">
+      <a href="#inicio" class="logo">
+        <span class="logo-mark">CP</span>
+        <span>CENTRALPLAST</span>
+      </a>
+
+      <nav>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#empresa">Empresa</a></li>
+          <li><a href="#produtos">Produtos</a></li>
+          <li><a href="#precos">Preços</a></li>
+          <li><a href="#contactos">Contactos</a></li>
+        </ul>
+      </nav>
+
+      <a class="btn btn-primary" href="#contactos">Pedir orçamento</a>
+      <button class="mobile-menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <h1>Soluções em plásticos industriais para profissionais e empresas.</h1>
+          <p>Fornecimento de tubagens, acessórios, válvulas e sistemas técnicos em materiais plásticos para indústria, construção, saneamento, ventilação e ar comprimido.</p>
+          <div class="hero-actions">
+            <a href="#produtos" class="btn btn-primary">Ver produtos</a>
+            <a href="#contactos" class="btn btn-outline">Contactar equipa comercial</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <h3>Materiais disponíveis</h3>
+          <div class="hero-list">
+            <div>PVC, PVC-C e PVC-C HTA</div>
+            <div>PEAD, PP-H, PPs e PPs-EL</div>
+            <div>ABS, PVDF e acessórios técnicos</div>
+            <div>Tubagem, ventilação e ar comprimido</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <span>Áreas de atuação</span>
+          <h2>Produtos técnicos para diferentes aplicações</h2>
+          <p>Uma oferta organizada por tipo de matéria-prima e aplicação, facilitando a consulta e o pedido de orçamento.</p>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <div class="icon">⚙</div>
+            <h3>Indústria</h3>
+            <p>Soluções para instalações técnicas, redes de fluidos, ventilação e condução de ar.</p>
+          </div>
+          <div class="card">
+            <div class="icon">💧</div>
+            <h3>Saneamento</h3>
+            <p>Tubos e acessórios para redes de água, esgoto, pressão e saneamento.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🏗</div>
+            <h3>Construção</h3>
+            <p>Materiais resistentes e adequados para obras, manutenção e instalações especiais.</p>
+          </div>
+          <div class="card">
+            <div class="icon">📦</div>
+            <h3>Fornecimento</h3>
+            <p>Apoio comercial, resposta a pedidos específicos e fornecimento por orçamento.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="empresa">
+      <div class="container about-grid">
+        <div class="about-image"></div>
+        <div class="about-content">
+          <span style="color: var(--accent); font-weight: 800; text-transform: uppercase; font-size: .78rem; letter-spacing: 1.4px;">Quem somos</span>
+          <h2>Especialistas em plásticos industriais</h2>
+          <p>A Centralplast disponibiliza uma gama diversificada de produtos em plástico técnico, organizada por matéria-prima e aplicação, com foco no fornecimento de soluções para profissionais, empresas e instalações industriais.</p>
+          <p>O objetivo é facilitar o acesso a informação clara sobre produtos, categorias, aplicações e contactos comerciais, permitindo uma resposta rápida a pedidos de orçamento.</p>
+
+          <div class="features">
+            <div class="feature">Catálogo por materiais</div>
+            <div class="feature">Produtos técnicos</div>
+            <div class="feature">Apoio comercial</div>
+            <div class="feature">Orçamentos personalizados</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="produtos">
+  <div class="container">
+
+    <div class="section-title">
+      <span>Catálogo</span>
+      <h2>Principais famílias de produtos</h2>
+      <p>
+        Consulta rápida por tipo de plástico.
+        Clique numa categoria para visualizar produtos, aplicações e tabelas de preços.
+      </p>
+    </div>
+
+    <div class="products-grid">
+
+      <!-- PVC -->
+      <a href="pvc.html" class="product-card">
+        <div class="product-top">PVC</div>
+
+        <div class="product-body">
+          <h3>PVC</h3>
+
+          <p>
+            Acessórios e válvulas de pressão, esgoto,
+            saneamento, tubagem, ventilação e colas técnicas.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Pressão</span>
+            <span class="tag">Esgoto</span>
+            <span class="tag">Tubagem</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- PVC-C -->
+      <a href="pvc_c.html" class="product-card">
+        <div class="product-top">PVC-C</div>
+
+        <div class="product-body">
+          <h3>PVC-C</h3>
+
+          <p>
+            Sistemas de tubagem e acessórios para aplicações
+            industriais com resistência química e térmica.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Industrial</span>
+            <span class="tag">Químico</span>
+            <span class="tag">Pressão</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- PVC-C HTA -->
+      <a href="pvc-c-hta.html" class="product-card">
+        <div class="product-top">PVC-C HTA</div>
+
+        <div class="product-body">
+          <h3>PVC-C HTA</h3>
+
+          <p>
+            Soluções técnicas para altas temperaturas
+            e aplicações industriais específicas.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Alta temperatura</span>
+            <span class="tag">Industrial</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- PP-H -->
+      <a href="pp-h.html" class="product-card">
+        <div class="product-top">PP-H</div>
+
+        <div class="product-body">
+          <h3>PP-H</h3>
+
+          <p>
+            Tubo e acessórios de pressão, sistemas de ventilação
+            e soluções para aplicações técnicas.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Pressão</span>
+            <span class="tag">Ventilação</span>
+            <span class="tag">Industrial</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- PPS -->
+      <a href="pps.html" class="product-card">
+        <div class="product-top">PPs</div>
+
+        <div class="product-body">
+          <h3>PPs</h3>
+
+          <p>
+            Soluções para ventilação, condutas
+            e sistemas técnicos em ambientes industriais.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Ventilação</span>
+            <span class="tag">Condutas</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- PPS-EL -->
+      <a href="pps-el.html" class="product-card">
+        <div class="product-top">PPs-EL</div>
+
+        <div class="product-body">
+          <h3>PPs-EL</h3>
+
+          <p>
+            Sistemas técnicos condutivos para aplicações
+            industriais especiais e ambientes controlados.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Condutivo</span>
+            <span class="tag">Industrial</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- PVDF -->
+      <a href="pvdf.html" class="product-card">
+        <div class="product-top">PVDF</div>
+
+        <div class="product-body">
+          <h3>PVDF</h3>
+
+          <p>
+            Acessórios de pressão e componentes para aplicações
+            exigentes e instalações especiais.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Pressão</span>
+            <span class="tag">Técnico</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- ABS -->
+      <a href="abs.html" class="product-card">
+
+    <div class="product-top">ABS</div>
+
+    <div class="product-body">
+
+        <h3>ABS</h3>
+
+        <p>
+            Material técnico com aplicações específicas
+            em sistemas industriais e redes de fluídos.
+        </p>
+
+        <div class="tags">
+            <span class="tag">Industrial</span>
+            <span class="tag">Aplicações especiais</span>
+        </div>
+
+    </div>
+
+</a>
+
+      <!-- PEAD -->
+      <a href="pead.html" class="product-card">
+        <div class="product-top">PEAD</div>
+
+        <div class="product-body">
+          <h3>PEAD</h3>
+
+          <p>
+            Tubos, acessórios de pressão, ventilação e soluções
+            para sistemas de ar comprimido.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Tubo</span>
+            <span class="tag">Acessórios</span>
+            <span class="tag">Ar comprimido</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+    <section class="price-section" id="precos">
+      <div class="container">
+        <div class="section-title">
+          <span>Tabela informativa</span>
+          <h2>Exemplo de tabela de preços</h2>
+          <p>Esta zona pode ser preenchida com os preços reais por medida, diâmetro, espessura ou unidade.</p>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Produto</th>
+                <th>Categoria</th>
+                <th>Medida</th>
+                <th>Preço</th>
+                <th>Observações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Tubo PVC</td>
+                <td>Tubagem</td>
+                <td>Ø 50 mm</td>
+                <td>Sob consulta</td>
+                <td>Preço variável por quantidade</td>
+              </tr>
+              <tr>
+                <td>Acessório PVC pressão</td>
+                <td>Acessórios</td>
+                <td>Diversas medidas</td>
+                <td>Sob consulta</td>
+                <td>Consultar disponibilidade</td>
+              </tr>
+              <tr>
+                <td>Tubo PEAD</td>
+                <td>Tubagem</td>
+                <td>Diversos diâmetros</td>
+                <td>Sob consulta</td>
+                <td>Indicado para redes técnicas</td>
+              </tr>
+              <tr>
+                <td>Ventilação PP-H</td>
+                <td>Ventilação</td>
+                <td>Por projeto</td>
+                <td>Sob orçamento</td>
+                <td>Solução personalizada</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <h2>Não encontra o produto que procura?</h2>
+        <p>Entre em contacto com a equipa comercial e solicite informação ou orçamento personalizado.</p>
+        <a href="#contactos" class="btn btn-outline">Pedir informação</a>
+      </div>
+    </section>
+
+    <section id="contactos">
+      <div class="container">
+        <div class="section-title">
+          <span>Contactos</span>
+          <h2>Fale connosco</h2>
+          <p>Preencha o formulário ou contacte diretamente a equipa da Centralplast.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>Centralplast</h3>
+            <div class="contact-item">
+              <strong>Empresa</strong>
+              REDAMA - Plásticos Industriais Unipessoal, Lda.
+            </div>
+            <div class="contact-item">
+              <strong>Morada</strong>
+              Rua das Flores, Nº 14<br>2150-149 Golegã, Portugal
+            </div>
+            <div class="contact-item">
+              <strong>Telefone</strong>
+              +351 249 817 689
+            </div>
+            <div class="contact-item">
+              <strong>Telemóvel</strong>
+              +351 966 156 151
+            </div>
+            <div class="contact-item">
+              <strong>Email geral</strong>
+              centralplast@centralplast.pt
+            </div>
+            <div class="contact-item">
+              <strong>Email comercial</strong>
+              comercial@centralplast.pt
+            </div>
+          </div>
+
+          <form>
+            <h3>Pedido de contacto</h3>
+            <div class="form-grid">
+              <input type="text" placeholder="Nome" required>
+              <input type="email" placeholder="Email" required>
+              <input type="tel" placeholder="Telefone">
+              <select>
+                <option>Tipo de pedido</option>
+                <option>Pedido de orçamento</option>
+                <option>Informação sobre produto</option>
+                <option>Disponibilidade de stock</option>
+                <option>Outro assunto</option>
+              </select>
+              <textarea placeholder="Mensagem"></textarea>
+              <button type="submit" class="btn btn-primary">Enviar pedido</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <p>© 2026 Centralplast. Todos os direitos reservados.</p>
+      <p>Plásticos industriais · Tubagem · Acessórios · Ventilação</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
