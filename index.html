@@ -555,6 +555,25 @@
 }
 
 
+.about-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 26px;
+  border-radius:999px;
+  background:var(--primary);
+  color:white;
+  font-weight:800;
+  text-decoration:none;
+  transition:.25s ease;
+  box-shadow:0 10px 25px rgba(0,91,150,.18);
+}
+
+.about-btn:hover{
+  transform:translateY(-3px);
+  background:#003f6b;
+}
+
   </style>
 </head>
 <body>
@@ -638,23 +657,47 @@
     </section>
 
     <section class="about" id="empresa">
-      <div class="container about-grid">
-        <div class="about-image"></div>
-        <div class="about-content">
-          <span style="color: var(--accent); font-weight: 800; text-transform: uppercase; font-size: .78rem; letter-spacing: 1.4px;">Quem somos</span>
-          <h2>Especialistas em plásticos industriais</h2>
-          <p>A Centralplast disponibiliza uma gama diversificada de produtos em plástico técnico, organizada por matéria-prima e aplicação, com foco no fornecimento de soluções para profissionais, empresas e instalações industriais.</p>
-          <p>O objetivo é facilitar o acesso a informação clara sobre produtos, categorias, aplicações e contactos comerciais, permitindo uma resposta rápida a pedidos de orçamento.</p>
+  <div class="container about-grid">
 
-          <div class="features">
-            <div class="feature">Catálogo por materiais</div>
-            <div class="feature">Produtos técnicos</div>
-            <div class="feature">Apoio comercial</div>
-            <div class="feature">Orçamentos personalizados</div>
-          </div>
-        </div>
+    <div class="about-image"></div>
+
+    <div class="about-content">
+
+      <span style="color: var(--accent); font-weight: 800; text-transform: uppercase; font-size: .78rem; letter-spacing: 1.4px;">
+        Quem somos
+      </span>
+
+      <h2>Especialistas em plásticos industriais</h2>
+
+      <p>
+        A Centralplast disponibiliza uma gama diversificada de produtos em plástico técnico, 
+        organizada por matéria-prima e aplicação, com foco no fornecimento de soluções 
+        para profissionais, empresas e instalações industriais.
+      </p>
+
+      <p>
+        O objetivo é facilitar o acesso a informação clara sobre produtos, categorias, 
+        aplicações e contactos comerciais, permitindo uma resposta rápida a pedidos de orçamento.
+      </p>
+
+      <div class="features">
+        <div class="feature">Catálogo por materiais</div>
+        <div class="feature">Produtos técnicos</div>
+        <div class="feature">Apoio comercial</div>
+        <div class="feature">Orçamentos personalizados</div>
       </div>
-    </section>
+
+      <!-- BOTÃO -->
+      <div style="margin-top: 32px;">
+        <a href="quemsomos.html" class="about-btn">
+          Saber mais sobre nós
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
 
     <section id="produtos">
   <div class="container">
