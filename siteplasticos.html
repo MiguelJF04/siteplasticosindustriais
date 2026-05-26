@@ -542,6 +542,19 @@
         padding: 62px 0;
       }
     }
+
+.product-card{
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: .25s ease;
+}
+
+.product-card:hover{
+  transform: translateY(-6px);
+}
+
+
   </style>
 </head>
 <body>
@@ -644,70 +657,201 @@
     </section>
 
     <section id="produtos">
-      <div class="container">
-        <div class="section-title">
-          <span>Catálogo</span>
-          <h2>Principais famílias de produtos</h2>
-          <p>Consulta rápida por tipo de plástico. Cada categoria pode ter uma página própria com imagens, fichas técnicas, medidas e preços.</p>
-        </div>
+  <div class="container">
 
-        <div class="products-grid">
-          <div class="product-card">
-            <div class="product-top">PVC</div>
-            <div class="product-body">
-              <h3>PVC</h3>
-              <p>Acessórios e válvulas de pressão, esgoto, saneamento, tubagem, ventilação e colas técnicas.</p>
-              <div class="tags"><span class="tag">Pressão</span><span class="tag">Esgoto</span><span class="tag">Tubagem</span></div>
-            </div>
-          </div>
+    <div class="section-title">
+      <span>Catálogo</span>
+      <h2>Principais famílias de produtos</h2>
+      <p>
+        Consulta rápida por tipo de plástico.
+        Clique numa categoria para visualizar produtos, aplicações e tabelas de preços.
+      </p>
+    </div>
 
-          <div class="product-card">
-            <div class="product-top">PEAD</div>
-            <div class="product-body">
-              <h3>PEAD</h3>
-              <p>Tubos, acessórios de pressão, ventilação e soluções para sistemas de ar comprimido.</p>
-              <div class="tags"><span class="tag">Tubo</span><span class="tag">Acessórios</span><span class="tag">Ar comprimido</span></div>
-            </div>
-          </div>
+    <div class="products-grid">
 
-          <div class="product-card">
-            <div class="product-top">PP-H</div>
-            <div class="product-body">
-              <h3>PP-H</h3>
-              <p>Tubo e acessórios de pressão, sistemas de ventilação e soluções para aplicações técnicas.</p>
-              <div class="tags"><span class="tag">Pressão</span><span class="tag">Ventilação</span><span class="tag">Industrial</span></div>
-            </div>
-          </div>
+      <!-- PVC -->
+      <a href="pvc.html" class="product-card">
+        <div class="product-top">PVC</div>
 
-          <div class="product-card">
-            <div class="product-top">PPs</div>
-            <div class="product-body">
-              <h3>PPs</h3>
-              <p>Soluções para ventilação, condutas e sistemas técnicos em ambientes industriais.</p>
-              <div class="tags"><span class="tag">Ventilação</span><span class="tag">Condutas</span></div>
-            </div>
-          </div>
+        <div class="product-body">
+          <h3>PVC</h3>
 
-          <div class="product-card">
-            <div class="product-top">PVDF</div>
-            <div class="product-body">
-              <h3>PVDF</h3>
-              <p>Acessórios de pressão e componentes para aplicações exigentes e instalações especiais.</p>
-              <div class="tags"><span class="tag">Pressão</span><span class="tag">Técnico</span></div>
-            </div>
-          </div>
+          <p>
+            Acessórios e válvulas de pressão, esgoto,
+            saneamento, tubagem, ventilação e colas técnicas.
+          </p>
 
-          <div class="product-card">
-            <div class="product-top">ABS</div>
-            <div class="product-body">
-              <h3>ABS</h3>
-              <p>Material técnico com aplicações específicas em sistemas industriais e redes de fluídos.</p>
-              <div class="tags"><span class="tag">Industrial</span><span class="tag">Aplicações especiais</span></div>
-            </div>
+          <div class="tags">
+            <span class="tag">Pressão</span>
+            <span class="tag">Esgoto</span>
+            <span class="tag">Tubagem</span>
           </div>
         </div>
-      </div>
-    </section>
+      </a>
+
+      <!-- PVC-C -->
+      <a href="pvc_c.html" class="product-card">
+        <div class="product-top">PVC-C</div>
+
+        <div class="product-body">
+          <h3>PVC-C</h3>
+
+          <p>
+            Sistemas de tubagem e acessórios para aplicações
+            industriais com resistência química e térmica.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Industrial</span>
+            <span class="tag">Químico</span>
+            <span class="tag">Pressão</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- PVC-C HTA -->
+      <a href="pvc-c-hta.html" class="product-card">
+        <div class="product-top">PVC-C HTA</div>
+
+        <div class="product-body">
+          <h3>PVC-C HTA</h3>
+
+          <p>
+            Soluções técnicas para altas temperaturas
+            e aplicações industriais específicas.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Alta temperatura</span>
+            <span class="tag">Industrial</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- PP-H -->
+      <a href="pp-h.html" class="product-card">
+        <div class="product-top">PP-H</div>
+
+        <div class="product-body">
+          <h3>PP-H</h3>
+
+          <p>
+            Tubo e acessórios de pressão, sistemas de ventilação
+            e soluções para aplicações técnicas.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Pressão</span>
+            <span class="tag">Ventilação</span>
+            <span class="tag">Industrial</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- PPS -->
+      <a href="pps.html" class="product-card">
+        <div class="product-top">PPs</div>
+
+        <div class="product-body">
+          <h3>PPs</h3>
+
+          <p>
+            Soluções para ventilação, condutas
+            e sistemas técnicos em ambientes industriais.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Ventilação</span>
+            <span class="tag">Condutas</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- PPS-EL -->
+      <a href="pps-el.html" class="product-card">
+        <div class="product-top">PPs-EL</div>
+
+        <div class="product-body">
+          <h3>PPs-EL</h3>
+
+          <p>
+            Sistemas técnicos condutivos para aplicações
+            industriais especiais e ambientes controlados.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Condutivo</span>
+            <span class="tag">Industrial</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- PVDF -->
+      <a href="pvdf.html" class="product-card">
+        <div class="product-top">PVDF</div>
+
+        <div class="product-body">
+          <h3>PVDF</h3>
+
+          <p>
+            Acessórios de pressão e componentes para aplicações
+            exigentes e instalações especiais.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Pressão</span>
+            <span class="tag">Técnico</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- ABS -->
+      <a href="abs.html" class="product-card">
+
+    <div class="product-top">ABS</div>
+
+    <div class="product-body">
+
+        <h3>ABS</h3>
+
+        <p>
+            Material técnico com aplicações específicas
+            em sistemas industriais e redes de fluídos.
+        </p>
+
+        <div class="tags">
+            <span class="tag">Industrial</span>
+            <span class="tag">Aplicações especiais</span>
+        </div>
+
+    </div>
+
+</a>
+
+      <!-- PEAD -->
+      <a href="pead.html" class="product-card">
+        <div class="product-top">PEAD</div>
+
+        <div class="product-body">
+          <h3>PEAD</h3>
+
+          <p>
+            Tubos, acessórios de pressão, ventilação e soluções
+            para sistemas de ar comprimido.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Tubo</span>
+            <span class="tag">Acessórios</span>
+            <span class="tag">Ar comprimido</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
 
     <section class="price-section" id="precos">
       <div class="container">
